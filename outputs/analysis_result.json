@@ -1,0 +1,16 @@
+{
+    "bug_description": "Button alignment incorrect.",
+    "triage": {
+        "severity": "Low",
+        "priority": "Low",
+        "component": "Frontend",
+        "confidence": "82%",
+        "reason": "Minor user interface issue detected.",
+        "suggested_action": "Schedule the issue for the next UI improvement cycle."
+    },
+    "log_analysis": {
+        "exception": "Unknown Exception",
+        "failure": "Unknown",
+        "code_path": "Unknown"
+    }
+}

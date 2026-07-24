@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Smart Bug Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+
+        <h1>AI Smart Bug Analyzer</h1>
+
+        <p>
+            Intelligent Multi-Agent Bug Analysis Platform
+        </p>
+
+    </header>
+
+    <div class="dashboard">
+
+        <!-- LEFT -->
+
+        <div class="card">
+
+            <h2>Submit Bug Report</h2>
+
+            <form action="/analyze"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <label>Bug Description</label>
+
+                <textarea
+                    name="bug_description"
+                    placeholder="Describe the issue, stack trace or software behaviour...">{{ bug_description if bug_description else "" }}</textarea>
+
+                <label>Stack Trace</label>
+
+                <input
+                    type="file"
+                    name="stack_trace">
+
+                {% if stack_filename %}
+                <small class="filename">
+                    Uploaded : {{ stack_filename }}
+                </small>
+                {% endif %}
+
+                <label>Error Log</label>
+
+                <input
+                    type="file"
+                    name="error_log">
+
+                {% if error_filename %}
+                <small class="filename">
+                    Uploaded : {{ error_filename }}
+                </small>
+                {% endif %}
+
+                <div class="buttons">
+
+                    <button type="submit">
+
+                        Analyze Bug
+
+                    </button>
+
+                    <a href="/">
+
+                        <button
+                            type="button"
+                            class="clear">
+
+                            Clear
+
+                        </button>
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="card">
+
+            <h2>Analysis Summary</h2>
+
+            <p style="margin-bottom:18px; color:#555;">
+                <b>Bug ID :</b> {{ bug_id }}
+            </p>
+
+            <div class="result-grid">
+
+                <div class="info">
+
+                    <span>Severity</span>
+
+                    <div class="badge {{ severity_class }}">
+                        {{ severity }}
+                    </div>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Priority</span>
+
+                    <div class="badge {{ priority_class }}">
+                        {{ priority }}
+                    </div>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Component</span>
+
+                    <div class="value">
+
+                        {{ component }}
+
+                    </div>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Confidence</span>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                            style="--progress: {{ confidence_value }}%;">
+
+                            {{ confidence }}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Analysis Time</h3>
+
+                <p>
+
+                    {{ analysis_time }} seconds
+
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Triage Agent Reasoning</h3>
+
+                <p>
+
+                    {{ reasoning }}
+
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Suggested Action</h3>
+
+                <p>
+
+                    {{ suggested_action }}
+
+                </p>
+
+            </div>
+
+            <div class="section">
+
+                <h3>Log Analysis</h3>
+
+                <table>
+
+                    <tr>
+
+                        <td>Exception Type</td>
+
+                        <td>{{ exception }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Failure Point</td>
+
+                        <td>{{ failure }}</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Affected Code Path</td>
+
+                        <td>{{ code_path }}</td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+    Developed using Flask • Python • Multi-Agent Architecture • Rule-Based AI
+
+    </footer>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+File upload is failing for PDF documents.
+
+Expected:
+PDF should upload successfully.
+
+Actual:
+Upload failed and FileNotFoundError occurred.
+
+Stack Trace:
+FileNotFoundError: uploads/report.pdf not found.

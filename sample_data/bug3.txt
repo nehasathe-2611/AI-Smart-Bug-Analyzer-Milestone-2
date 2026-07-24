@@ -1,0 +1,10 @@
+Database connection times out while saving bug reports.
+
+Expected:
+Bug report should be stored.
+
+Actual:
+Saving process fails due to timeout.
+
+Stack Trace:
+TimeoutError: Database connection timeout after 30 seconds.

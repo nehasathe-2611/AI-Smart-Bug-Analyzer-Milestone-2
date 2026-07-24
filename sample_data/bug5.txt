@@ -1,0 +1,10 @@
+Search functionality returns empty results for valid keywords.
+
+Expected:
+Matching bug reports should appear.
+
+Actual:
+No records returned.
+
+Stack Trace:
+ValueError: Invalid search index.

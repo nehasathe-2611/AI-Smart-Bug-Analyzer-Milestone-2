@@ -1,0 +1,9 @@
+The Settings page button is not aligned properly.
+
+Expected:
+Buttons should be aligned.
+
+Actual:
+Settings button overlaps the Save button.
+
+No exception generated.

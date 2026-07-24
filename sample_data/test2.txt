@@ -1,0 +1,5 @@
+Traceback
+
+File "main.py", line 24
+
+TypeError

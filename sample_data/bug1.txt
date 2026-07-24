@@ -1,0 +1,10 @@
+Application crashes immediately after user login.
+
+Expected:
+Dashboard should open successfully.
+
+Actual:
+Application terminates unexpectedly after login.
+
+Stack Trace:
+TypeError: unsupported operand type at app.py line 42.
