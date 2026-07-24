@@ -1,123 +1,277 @@
-# AI Smart Bug Analyzer
+# 🐞 AI Smart Bug Analyzer
 
-## Overview
+> An AI-powered Multi-Agent Bug Analysis System built using **Python**, **Flask**, and **Rule-Based AI** to automate software bug triage and log analysis.
 
-AI Smart Bug Analyzer is a Flask-based multi-agent application that
-analyzes software bug reports using a rule-based approach. The system
-classifies bug severity, priority, and affected component, extracts
-useful information from uploaded stack traces, and provides a suggested
-action for developers.
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?logo=flask)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![Project](https://img.shields.io/badge/Infosys-Springboard-orange)
 
-## Features
+---
 
--   Bug report submission
--   Stack trace upload (.txt)
--   Error log upload (.txt)
--   Rule-based Triage Agent
-    -   Severity classification
-    -   Priority assignment
-    -   Component identification
-    -   Confidence score
-    -   Reasoning
-    -   Suggested action
--   Log Analysis Agent
-    -   Exception detection
-    -   Failure point extraction
-    -   Affected code path detection
--   Analysis time measurement
--   Auto-generated Bug ID
--   Responsive dashboard UI
+# 📌 Project Overview
 
-## Project Structure
+AI Smart Bug Analyzer is a Flask-based web application developed as part of the **Infosys Springboard Virtual Internship (Milestone 2)**.
 
-``` text
+The application uses a **Multi-Agent Architecture** to analyze software bug reports automatically.
+
+It accepts a bug description and optional stack trace or error log, then performs:
+
+- Bug Triage
+- Log Analysis
+- Severity Prediction
+- Priority Prediction
+- Component Detection
+- Exception Detection
+- Suggested Action Generation
+
+The goal is to help developers identify and prioritize software bugs more efficiently.
+
+---
+
+# 🚀 Features
+
+### 🤖 Triage Agent
+
+- Predicts Bug Severity
+- Predicts Bug Priority
+- Detects Affected Component
+- Calculates Confidence Score
+- Provides Reasoning
+- Generates Suggested Action
+
+---
+
+### 📄 Log Analysis Agent
+
+- Detects Exception Type
+- Extracts Failure Point
+- Detects Affected Code Path
+- Supports Python and Java Stack Traces
+
+---
+
+### ⚙️ Additional Features
+
+- Auto-generated Bug ID
+- Analysis Time Calculation
+- Rule-Based Decision Engine
+- Responsive Flask Dashboard
+- File Upload Support
+- Clean User Interface
+
+---
+
+# 🏗️ Project Architecture
+
+```text
+                User
+
+                  │
+
+                  ▼
+
+        Flask Web Application
+
+                  │
+
+                  ▼
+
+            Orchestrator
+
+        ┌─────────┴─────────┐
+
+        ▼                   ▼
+
+ Triage Agent       Log Analysis Agent
+
+        │                   │
+
+        └─────────┬─────────┘
+
+                  ▼
+
+          Combined Analysis
+
+                  ▼
+
+        Analysis Dashboard
+```
+
+---
+
+# 📂 Project Structure
+
+```text
 AI-Smart-Bug-Analyzer/
+
+│
+
 ├── agents/
 │   ├── triage_agent.py
 │   ├── log_analysis_agent.py
 │   └── orchestrator.py
+│
 ├── sample_data/
+│
 ├── static/
 │   └── style.css
+│
 ├── templates/
 │   └── index.html
+│
 ├── utils/
 │   └── save_output.py
+│
 ├── app.py
 ├── requirements.txt
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
-## Technologies Used
+---
 
--   Python
--   Flask
--   HTML5
--   CSS3
--   Rule-Based AI
--   Regular Expressions (Regex)
+# 🛠️ Technologies Used
 
-## Workflow
+- Python
+- Flask
+- HTML5
+- CSS3
+- Rule-Based Artificial Intelligence
+- Regular Expressions (Regex)
 
-1.  User submits a bug description.
-2.  Optional stack trace and error log are uploaded.
-3.  Triage Agent classifies the bug.
-4.  Log Analysis Agent extracts exception details.
-5.  Orchestrator combines results.
-6.  Dashboard displays the final analysis.
+---
 
-## Installation
+# 🔄 Workflow
 
-``` bash
-git clone <repository-url>
-cd AI-Smart-Bug-Analyzer
+1. User submits a bug description.
+2. User optionally uploads a stack trace or error log.
+3. Triage Agent analyzes the bug report.
+4. Log Analysis Agent extracts exception details.
+5. Orchestrator combines outputs from both agents.
+6. Final analysis is displayed on the dashboard.
+
+---
+
+# 📊 Output Generated
+
+The application generates:
+
+- 🆔 Bug ID
+- 🚨 Severity
+- ⚡ Priority
+- 📦 Affected Component
+- 📈 Confidence Score
+- ⏱️ Analysis Time
+- 💡 Triage Reasoning
+- 🛠️ Suggested Action
+- ❗ Exception Type
+- 📍 Failure Point
+- 📄 Affected Code Path
+
+---
+
+# 🧪 Sample Test Cases
+
+| Bug Description | Expected Severity |
+|----------------|-------------------|
+| Application crashes after login | Critical |
+| Database timeout | High |
+| Application is slow | Medium |
+| Button alignment incorrect | Low |
+
+---
+
+# ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/nehasathe-2611/AI-Smart-Bug-Analyzer-Milestone-2.git
+```
+
+Go to the project directory
+
+```bash
+cd AI-Smart-Bug-Analyzer-Milestone-2
+```
+
+Create a virtual environment
+
+```bash
 python -m venv venv
 ```
 
-Activate the environment.
+Activate the virtual environment
 
-Windows:
+### Windows
 
-``` bash
+```bash
 venv\Scripts\activate
 ```
 
-Install dependencies:
+Install the required packages
 
-``` bash
+```bash
 pip install -r requirements.txt
 ```
 
-Run:
+Run the application
 
-``` bash
+```bash
 python app.py
 ```
 
-Open: http://127.0.0.1:5000
+Open your browser
 
-## Example Test Cases
+```text
+http://127.0.0.1:5000
+```
 
-  Bug Description                   Expected Severity
-  --------------------------------- -------------------
-  Application crashes after login   Critical
-  Database timeout                  High
-  Application is slow               Medium
-  Button alignment incorrect        Low
+---
 
-## Future Enhancements
+# 🎯 Internship Deliverables Covered
 
--   ML-based bug classification
--   LLM integration
--   PDF report export
--   Bug history
--   Dashboard analytics
--   User authentication
+✅ Bug Submission Module
 
-## Author
+✅ Triage Agent
+
+✅ Log Analysis Agent
+
+✅ Multi-Agent Orchestration
+
+✅ Structured Output Generation
+
+✅ Validation using Sample Bug Reports
+
+---
+
+# 🔮 Future Enhancements
+
+- Machine Learning based Bug Classification
+- LLM Integration
+- Duplicate Bug Detection
+- Root Cause Analysis Agent
+- Bug History Database
+- Dashboard Analytics
+- PDF Report Generation
+- User Authentication
+
+---
+
+# 👩‍💻 Author
 
 **Neha Sathe**
 
-MCA Student \| AI/ML Research Intern
+MCA Student | AI/ML Research Intern
 
-Developed as part of the Infosys Springboard Virtual Internship.
+📍 Solapur, Maharashtra, India
+
+---
+
+# 📜 Acknowledgement
+
+This project was developed as part of the **Infosys Springboard Virtual Internship** to demonstrate a **Multi-Agent AI workflow** for automated software bug analysis, bug triage, and log analysis.
+
+---
+⭐ If you found this project useful, consider giving it a Star on GitHub.
